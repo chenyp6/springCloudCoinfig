@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 3556
+
+spring:
+  profiles: dev
+  application:
+    name: com-laoshiren-microService-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaserver1:8763/eureka/,http://eurekaserver2:8764/eureka/,http://eurekaserver3:8765/eureka/
+  instance:
+    prefer-ip-address: true
+
+---
+
+server:
+  port: 3557
+
+spring:
+  profiles: test
+  application:
+    name: com-laoshiren-microService-client
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://laoshiren.com:8763/eureka/,http://laoshiren.com:8764/eureka/,http://laoshiren.com:8765/eureka/
+  instance:
+    prefer-ip-address: true
+
